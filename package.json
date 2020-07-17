@@ -6,9 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "chk": "./chk.js"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "enquirer": "^2.3.6",
     "simple-git": "^2.13.2"
   }
 }
