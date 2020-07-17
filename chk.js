@@ -1,23 +1,31 @@
 #! /usr/bin/env node
 const { AutoComplete } = require('enquirer');
 const simpleGit = require('simple-git');
+const Fuse = require('fuse.js');
 
 const git = simpleGit();
 
 async function run() {
   const branchesSummary = await git.branchLocal({ '--sort': '-committerdate' });
-  const branches = branchesSummary.all;
-
+  const choices = branchesSummary.all;
 
   const prompt = new AutoComplete({
     message: 'Select branch',
     name: 'branchName',
-    choices: branches,
+    choices,
+    suggest: (input, choices) => {
+      if (input === '') { return choices }
+      return new Fuse(choices, { keys: ['value'] }).search(input).map(({ item }) => item);
+    }
   });
 
-  const branchName = await prompt.run();
+  try { 
+    const branchName = await prompt.run();
 
-  return git.checkout(branchName);
+    return git.checkout(branchName);
+  } catch(e) {
+    // do nothing
+  }
 }
 
 run();
