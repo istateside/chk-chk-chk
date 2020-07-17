@@ -22,6 +22,8 @@ async function run() {
   try { 
     const branchName = await prompt.run();
 
+    console.log(`git checkout "${branchName}" ...`); 
+
     return git.checkout(branchName);
   } catch(e) {
     // do nothing
