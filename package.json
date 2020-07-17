@@ -1,0 +1,14 @@
+{
+  "name": "chk-chk-chk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "simple-git": "^2.13.2"
+  }
+}
