@@ -12,8 +12,5 @@
   "dependencies": {
     "enquirer": "^2.3.6",
     "fuse.js": "^6.4.0"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   }
 }
