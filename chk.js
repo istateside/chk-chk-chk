@@ -1,13 +1,16 @@
 #! /usr/bin/env node
 const { AutoComplete } = require('enquirer');
-const simpleGit = require('simple-git');
 const Fuse = require('fuse.js');
 
-const git = simpleGit();
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 
 async function run() {
-  const branchesSummary = await git.branchLocal({ '--sort': '-committerdate' });
-  const choices = branchesSummary.all;
+
+  const { stdout: branchNames } = await exec(`git branch --sort -committerdate --format="%(refname:short)"`);
+
+  const choices = branchNames.split('\n');
+  choices.splice(choices.length - 1, 1);
 
   const prompt = new AutoComplete({
     message: 'Select branch',
@@ -24,7 +27,7 @@ async function run() {
 
     console.log(`git checkout "${branchName}" ...`); 
 
-    return git.checkout(branchName);
+    return exec(`git checkout ${branchName}`);
   } catch(e) {
     // do nothing
   }

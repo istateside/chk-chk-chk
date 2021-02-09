@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "A command line tool to easily switch between git branches",
   "main": "chk.js",
+  "repository": "git://github.com/istateside/chk-chk-chk.git",
   "bin": {
     "chk": "./chk.js"
   },
@@ -10,7 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "enquirer": "^2.3.6",
-    "fuse.js": "^6.4.0",
-    "simple-git": "^2.13.2"
+    "fuse.js": "^6.4.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
