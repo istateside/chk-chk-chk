@@ -20,4 +20,4 @@ $ chk
 This will open up a fuzzy-finder search tool for your branches. Press up/down to navigate between
 options, and press Enter to select a branch.
 
-https://user-images.githubusercontent.com/7245931/107411083-1b66bf80-6adc-11eb-87a2-f58e94c41c4e.mp4
+![chk-chk-chk](https://user-images.githubusercontent.com/7245931/107412437-a8f6df00-6add-11eb-9f9d-1f43b6ef82f8.gif)
