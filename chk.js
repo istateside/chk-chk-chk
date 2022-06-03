@@ -15,6 +15,7 @@ async function run() {
   const prompt = new AutoComplete({
     message: 'Select branch',
     name: 'branchName',
+    limit: 30,
     choices,
     suggest: (input, choices) => {
       if (input === '') { return choices }
