@@ -1,6 +1,6 @@
 {
   "name": "chk-chk-chk",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A command line tool to easily switch between git branches",
   "main": "chk.js",
   "repository": "git://github.com/istateside/chk-chk-chk.git",
