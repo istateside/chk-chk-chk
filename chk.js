@@ -6,8 +6,14 @@ const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 
 async function run() {
-
-  const { stdout: branchNames } = await exec(`git branch --sort -committerdate --format="%(refname:short)"`);
+  let branchNames;
+  try {
+    const result = await exec(`git branch --sort -committerdate --format="%(refname:short)"`);
+    branchNames = result.stdout;
+  } catch (e) {
+    console.log('failed to get git branches');
+    process.exit(1);
+  }
 
   const choices = branchNames.split('\n');
   choices.splice(choices.length - 1, 1);
